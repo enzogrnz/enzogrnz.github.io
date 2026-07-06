@@ -10,423 +10,85 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --ink: #1a1a1a;
-      --ink-light: #555;
-      --bg: #fafaf8;
-      --white: #ffffff;
-      --accent: #2c5f8a;
-      --accent-light: #e8f0f7;
-      --rule: #e0e0dc;
+      --ink: #0f2a30;
+      --ink-light: #5a7a82;
+      --bg: #f2ede6;
+      --white: #faf7f2;
+      --accent: #1d4a52;
+      --accent-mid: #2d7a8a;
+      --accent-light: #e0eeef;
+      --rule: #ddd4c4;
       --serif: 'DM Serif Display', Georgia, serif;
       --sans: 'Inter', system-ui, sans-serif;
     }
-
     html { scroll-behavior: smooth; }
-
-    body {
-      font-family: var(--sans);
-      background: var(--bg);
-      color: var(--ink);
-      line-height: 1.6;
-    }
-
-    /* NAV */
+    body { font-family: var(--sans); background: var(--bg); color: var(--ink); line-height: 1.6; }
     nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      background: rgba(250,250,248,0.92);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--rule);
-      padding: 0 5%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 60px;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(242,237,230,0.93); backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--rule); padding: 0 5%;
+      display: flex; align-items: center; justify-content: space-between; height: 60px;
     }
-
-    .nav-logo {
-      font-family: var(--serif);
-      font-size: 1.1rem;
-      color: var(--ink);
-      text-decoration: none;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: var(--ink-light);
-      text-decoration: none;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      transition: color 0.2s;
-    }
-
+    .nav-logo { font-family: var(--serif); font-size: 1.1rem; color: var(--ink); text-decoration: none; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { font-size: 0.85rem; font-weight: 500; color: var(--ink-light); text-decoration: none; letter-spacing: 0.05em; text-transform: uppercase; transition: color 0.2s; }
     .nav-links a:hover { color: var(--accent); }
-
-    /* HERO */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding: 100px 5% 60px;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .hero-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
-      width: 100%;
-    }
-
-    .hero-text h1 {
-      font-family: var(--serif);
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      line-height: 1.1;
-      color: var(--ink);
-      margin-bottom: 1.5rem;
-    }
-
-    .hero-text h1 em {
-      font-style: italic;
-      color: var(--accent);
-    }
-
-    .hero-text p {
-      font-size: 1.05rem;
-      color: var(--ink-light);
-      margin-bottom: 2rem;
-      line-height: 1.7;
-    }
-
-    .hero-cta {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 0.75rem 1.75rem;
-      border-radius: 3px;
-      font-size: 0.875rem;
-      font-weight: 500;
-      text-decoration: none;
-      transition: all 0.2s;
-      letter-spacing: 0.02em;
-    }
-
-    .btn-primary {
-      background: var(--accent);
-      color: white;
-    }
-
-    .btn-primary:hover { background: #1e4a6e; }
-
-    .btn-outline {
-      border: 1.5px solid var(--ink);
-      color: var(--ink);
-    }
-
-    .btn-outline:hover { background: var(--ink); color: white; }
-
-    .hero-stats {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-    }
-
-    .stat-card {
-      background: var(--white);
-      border: 1px solid var(--rule);
-      border-radius: 8px;
-      padding: 1.5rem;
-    }
-
-    .stat-number {
-      font-family: var(--serif);
-      font-size: 2.5rem;
-      color: var(--accent);
-      line-height: 1;
-      margin-bottom: 0.3rem;
-    }
-
-    .stat-label {
-      font-size: 0.8rem;
-      color: var(--ink-light);
-      line-height: 1.3;
-    }
-
-    /* SECTIONS */
-    section {
-      padding: 100px 5%;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .section-eyebrow {
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.75rem;
-    }
-
-    .section-title {
-      font-family: var(--serif);
-      font-size: clamp(1.8rem, 3vw, 2.5rem);
-      color: var(--ink);
-      margin-bottom: 1.5rem;
-    }
-
-    hr.rule {
-      border: none;
-      border-top: 1px solid var(--rule);
-      margin: 80px 0;
-    }
-
-    /* EXPÉRIENCES */
-    .experiences { display: flex; flex-direction: column; gap: 0; }
-
-    .exp-item {
-      display: grid;
-      grid-template-columns: 200px 1fr;
-      gap: 3rem;
-      padding: 2.5rem 0;
-      border-bottom: 1px solid var(--rule);
-    }
-
+    .hero { min-height: 100vh; display: flex; align-items: center; padding: 100px 5% 60px; max-width: 1100px; margin: 0 auto; }
+    .hero-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; width: 100%; }
+    .hero-text h1 { font-family: var(--serif); font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.1; color: var(--ink); margin-bottom: 1.5rem; }
+    .hero-text h1 em { font-style: italic; color: var(--accent); }
+    .hero-text p { font-size: 1.05rem; color: var(--ink-light); margin-bottom: 2rem; line-height: 1.7; }
+    .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn { display: inline-block; padding: 0.75rem 1.75rem; border-radius: 3px; font-size: 0.875rem; font-weight: 500; text-decoration: none; transition: all 0.2s; letter-spacing: 0.02em; }
+    .btn-primary { background: var(--accent); color: white; }
+    .btn-primary:hover { background: #0f2a30; }
+    .btn-outline { border: 1.5px solid var(--ink); color: var(--ink); }
+    .btn-outline:hover { background: var(--ink); color: var(--white); }
+    .hero-cards { display: flex; flex-direction: column; gap: 1rem; }
+    .hero-card { background: var(--white); border: 1px solid var(--rule); border-radius: 8px; padding: 1.25rem 1.5rem; display: flex; align-items: center; gap: 1rem; }
+    .hero-card-icon { width: 40px; height: 40px; background: var(--accent-light); border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1.1rem; }
+    .hero-card-text strong { display: block; font-size: 0.9rem; font-weight: 600; color: var(--ink); margin-bottom: 0.15rem; }
+    .hero-card-text span { font-size: 0.8rem; color: var(--ink-light); line-height: 1.3; }
+    section { padding: 100px 5%; max-width: 1100px; margin: 0 auto; }
+    .section-eyebrow { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-mid); margin-bottom: 0.75rem; }
+    .section-title { font-family: var(--serif); font-size: clamp(1.8rem, 3vw, 2.5rem); color: var(--ink); margin-bottom: 1.5rem; }
+    hr.rule { border: none; border-top: 1px solid var(--rule); margin: 80px 0; }
+    .experiences { display: flex; flex-direction: column; }
+    .exp-item { display: grid; grid-template-columns: 200px 1fr; gap: 3rem; padding: 2.5rem 0; border-bottom: 1px solid var(--rule); }
     .exp-item:first-child { border-top: 1px solid var(--rule); }
-
-    .exp-meta { padding-top: 0.2rem; }
-
-    .exp-period {
-      font-size: 0.8rem;
-      color: var(--ink-light);
-      font-weight: 500;
-      margin-bottom: 0.3rem;
-    }
-
-    .exp-company {
-      font-size: 0.85rem;
-      color: var(--accent);
-      font-weight: 600;
-    }
-
-    .exp-title {
-      font-family: var(--serif);
-      font-size: 1.25rem;
-      margin-bottom: 0.75rem;
-    }
-
-    .exp-desc {
-      font-size: 0.9rem;
-      color: var(--ink-light);
-      line-height: 1.7;
-      margin-bottom: 0.75rem;
-    }
-
-    .exp-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-    }
-
-    .tag {
-      background: var(--accent-light);
-      color: var(--accent);
-      font-size: 0.75rem;
-      font-weight: 500;
-      padding: 0.25rem 0.7rem;
-      border-radius: 20px;
-    }
-
-    /* COMPÉTENCES */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-    }
-
-    .skill-block h3 {
-      font-size: 0.75rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--accent);
-      margin-bottom: 1rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 2px solid var(--accent);
-    }
-
-    .skill-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-
-    .skill-list li {
-      font-size: 0.875rem;
-      color: var(--ink-light);
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .skill-list li::before {
-      content: '';
-      width: 4px;
-      height: 4px;
-      background: var(--accent);
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
-
-    /* PROJETS */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2rem;
-    }
-
-    .project-card {
-      background: var(--white);
-      border: 1px solid var(--rule);
-      border-radius: 8px;
-      padding: 2rem;
-      transition: border-color 0.2s, box-shadow 0.2s;
-    }
-
-    .project-card:hover {
-      border-color: var(--accent);
-      box-shadow: 0 4px 20px rgba(44,95,138,0.08);
-    }
-
-    .project-category {
-      font-size: 0.7rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--accent);
-      margin-bottom: 0.75rem;
-    }
-
-    .project-title {
-      font-family: var(--serif);
-      font-size: 1.2rem;
-      margin-bottom: 0.75rem;
-    }
-
-    .project-desc {
-      font-size: 0.875rem;
-      color: var(--ink-light);
-      line-height: 1.6;
-      margin-bottom: 1rem;
-    }
-
-    .project-metric {
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--accent);
-      background: var(--accent-light);
-      display: inline-block;
-      padding: 0.2rem 0.6rem;
-      border-radius: 4px;
-    }
-
-    /* CONTACT */
-    .contact-wrapper {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: start;
-    }
-
-    .contact-info p {
-      font-size: 1rem;
-      color: var(--ink-light);
-      line-height: 1.7;
-      margin-bottom: 2rem;
-    }
-
-    .contact-links {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .contact-link {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      font-size: 0.9rem;
-      color: var(--ink);
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.2s;
-    }
-
+    .exp-period { font-size: 0.8rem; color: var(--ink-light); font-weight: 500; margin-bottom: 0.3rem; }
+    .exp-company { font-size: 0.85rem; color: var(--accent); font-weight: 600; }
+    .exp-title { font-family: var(--serif); font-size: 1.25rem; margin-bottom: 0.75rem; }
+    .exp-desc { font-size: 0.9rem; color: var(--ink-light); line-height: 1.7; margin-bottom: 0.75rem; }
+    .exp-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .tag { background: var(--accent-light); color: var(--accent); font-size: 0.75rem; font-weight: 500; padding: 0.25rem 0.7rem; border-radius: 20px; }
+    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+    .skill-block h3 { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--accent); }
+    .skill-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    .skill-list li { font-size: 0.875rem; color: var(--ink-light); display: flex; align-items: center; gap: 0.5rem; }
+    .skill-list li::before { content: ''; width: 4px; height: 4px; background: var(--accent-mid); border-radius: 50%; flex-shrink: 0; }
+    .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+    .project-card { background: var(--white); border: 1px solid var(--rule); border-radius: 8px; padding: 2rem; transition: border-color 0.2s, box-shadow 0.2s; }
+    .project-card:hover { border-color: var(--accent); box-shadow: 0 4px 20px rgba(29,74,82,0.08); }
+    .project-category { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-mid); margin-bottom: 0.75rem; }
+    .project-title { font-family: var(--serif); font-size: 1.2rem; margin-bottom: 0.75rem; }
+    .project-desc { font-size: 0.875rem; color: var(--ink-light); line-height: 1.6; margin-bottom: 1rem; }
+    .project-link { display: inline-block; font-size: 0.8rem; font-weight: 600; color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent); padding-bottom: 1px; transition: opacity 0.2s; }
+    .project-link:hover { opacity: 0.7; }
+    .contact-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+    .contact-info p { font-size: 1rem; color: var(--ink-light); line-height: 1.7; margin-bottom: 2rem; }
+    .contact-links { display: flex; flex-direction: column; gap: 1rem; }
+    .contact-link { display: flex; align-items: center; gap: 0.75rem; font-size: 0.9rem; color: var(--ink); text-decoration: none; font-weight: 500; transition: color 0.2s; }
     .contact-link:hover { color: var(--accent); }
-
-    .contact-link span.icon {
-      width: 36px;
-      height: 36px;
-      background: var(--accent-light);
-      border-radius: 6px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1rem;
-    }
-
-    .formation-list {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-
-    .formation-item {
-      padding-left: 1rem;
-      border-left: 2px solid var(--accent);
-    }
-
-    .formation-degree {
-      font-weight: 600;
-      font-size: 0.9rem;
-      margin-bottom: 0.2rem;
-    }
-
-    .formation-school {
-      font-size: 0.8rem;
-      color: var(--ink-light);
-    }
-
-    /* FOOTER */
-    footer {
-      border-top: 1px solid var(--rule);
-      padding: 2rem 5%;
-      text-align: center;
-      font-size: 0.8rem;
-      color: var(--ink-light);
-    }
-
-    /* RESPONSIVE */
+    .contact-link span.icon { width: 36px; height: 36px; background: var(--accent-light); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 1rem; color: var(--accent); }
+    .formation-list { display: flex; flex-direction: column; gap: 1.5rem; }
+    .formation-item { padding-left: 1rem; border-left: 2px solid var(--accent); }
+    .formation-degree { font-weight: 600; font-size: 0.9rem; margin-bottom: 0.2rem; }
+    .formation-school { font-size: 0.8rem; color: var(--ink-light); }
+    footer { border-top: 1px solid var(--rule); padding: 2rem 5%; text-align: center; font-size: 0.8rem; color: var(--ink-light); background: var(--white); }
     @media (max-width: 768px) {
       .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
-      .hero-stats { grid-template-columns: 1fr 1fr; }
       .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
       .skills-grid { grid-template-columns: 1fr; }
       .projects-grid { grid-template-columns: 1fr; }
@@ -437,7 +99,6 @@
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">Enzo Gernez</a>
   <ul class="nav-links">
@@ -448,11 +109,10 @@
   </ul>
 </nav>
 
-<!-- HERO -->
 <div class="hero">
   <div class="hero-inner">
     <div class="hero-text">
-      <p class="section-eyebrow">Disponible · Paris & IDF</p>
+      <p class="section-eyebrow">Disponible · Paris & IDF · Septembre 2026</p>
       <h1>Chargé de <em>Communication</em> & Événementiel</h1>
       <p>4 ans d'expérience en communication institutionnelle, stratégie éditoriale et gestion de projets événementiels. À l'aise aussi bien sur la stratégie que sur l'opérationnel terrain.</p>
       <div class="hero-cta">
@@ -460,22 +120,34 @@
         <a href="#projets" class="btn btn-outline">Voir mes projets</a>
       </div>
     </div>
-    <div class="hero-stats">
-      <div class="stat-card">
-        <div class="stat-number">28,6%</div>
-        <div class="stat-label">Taux d'ouverture newsletters (moy. secteur 21%)</div>
+    <div class="hero-cards">
+      <div class="hero-card">
+        <div class="hero-card-icon">✍️</div>
+        <div class="hero-card-text">
+          <strong>Stratégie éditoriale pilotée seul</strong>
+          <span>Newsletters, réseaux sociaux, site web — de la conception à la diffusion</span>
+        </div>
       </div>
-      <div class="stat-card">
-        <div class="stat-number">46</div>
-        <div class="stat-label">Collectivités & destinations gérées chez FCE</div>
+      <div class="hero-card">
+        <div class="hero-card-icon">🤝</div>
+        <div class="hero-card-text">
+          <strong>Événements institutionnels de A à Z</strong>
+          <span>Coordination complète prestataires, logistique et communication</span>
+        </div>
       </div>
-      <div class="stat-card">
-        <div class="stat-number">150</div>
-        <div class="stat-label">Professionnels par événement organisé</div>
+      <div class="hero-card">
+        <div class="hero-card-icon">🏟️</div>
+        <div class="hero-card-text">
+          <strong>Grands événements publics</strong>
+          <span>Fanzone officielle Coupe du Monde de Rugby 2023, Paris</span>
+        </div>
       </div>
-      <div class="stat-card">
-        <div class="stat-number">10k</div>
-        <div class="stat-label">Visiteurs/jour — fanzone CdM Rugby 2023</div>
+      <div class="hero-card">
+        <div class="hero-card-icon">🌿</div>
+        <div class="hero-card-text">
+          <strong>Communication RSE & innovation</strong>
+          <span>Label Destination Innovante Durable, guide bilingue FR/EN</span>
+        </div>
       </div>
     </div>
   </div>
@@ -483,11 +155,9 @@
 
 <div style="max-width:1100px;margin:0 auto;padding:0 5%"><hr class="rule"></div>
 
-<!-- EXPÉRIENCES -->
 <section id="experiences">
   <p class="section-eyebrow">Parcours</p>
   <h2 class="section-title">Expériences professionnelles</h2>
-
   <div class="experiences">
     <div class="exp-item">
       <div class="exp-meta">
@@ -496,7 +166,7 @@
       </div>
       <div class="exp-content">
         <h3 class="exp-title">Chargé de communication et événementiel</h3>
-        <p class="exp-desc">Pilotage seul de la stratégie de communication d'une fédération de 46 collectivités et destinations touristiques. Gestion de deux newsletters (3 000 abonnés, taux d'ouverture jusqu'à 28,6%), animation des réseaux sociaux, production du Guide bilingue FR/EN, coordination de 3 événements annuels réunissant jusqu'à 150 professionnels.</p>
+        <p class="exp-desc">Pilotage seul de la stratégie de communication d'une fédération de 46 collectivités et destinations touristiques. Gestion de deux newsletters, animation des réseaux sociaux, production du Guide France Congrès Événements bilingue FR/EN, coordination de 3 événements annuels réunissant jusqu'à 150 professionnels institutionnels.</p>
         <div class="exp-tags">
           <span class="tag">Stratégie éditoriale</span>
           <span class="tag">Newsletters</span>
@@ -508,7 +178,6 @@
         </div>
       </div>
     </div>
-
     <div class="exp-item">
       <div class="exp-meta">
         <div class="exp-period">Oct. 2023</div>
@@ -516,7 +185,7 @@
       </div>
       <div class="exp-content">
         <h3 class="exp-title">Coordinateur des espaces de restauration</h3>
-        <p class="exp-desc">Pilotage opérationnel de la fanzone officielle place de la Concorde lors de l'un des plus grands événements sportifs internationaux organisés en France. Jusqu'à 10 000 visiteurs par jour, supervision des équipes de service et gestion des flux en temps réel.</p>
+        <p class="exp-desc">Pilotage opérationnel de la fanzone officielle place de la Concorde lors de l'un des plus grands événements sportifs internationaux organisés en France. Supervision des équipes de service, gestion des flux et des imprévus en temps réel.</p>
         <div class="exp-tags">
           <span class="tag">Grand événement public</span>
           <span class="tag">Management terrain</span>
@@ -524,7 +193,6 @@
         </div>
       </div>
     </div>
-
     <div class="exp-item">
       <div class="exp-meta">
         <div class="exp-period">Sept. 2022 — Sept. 2023</div>
@@ -546,11 +214,9 @@
 
 <div style="max-width:1100px;margin:0 auto;padding:0 5%"><hr class="rule"></div>
 
-<!-- COMPÉTENCES -->
 <section id="competences">
   <p class="section-eyebrow">Savoir-faire</p>
   <h2 class="section-title">Compétences</h2>
-
   <div class="skills-grid">
     <div class="skill-block">
       <h3>Communication</h3>
@@ -569,7 +235,7 @@
         <li>Canva / Photoshop / Illustrator</li>
         <li>InDesign</li>
         <li>Montage vidéo</li>
-        <li>Supports print & print</li>
+        <li>Supports print & digital</li>
         <li>Guide & publication bilingue</li>
         <li>Meta Business Suite</li>
       </ul>
@@ -590,51 +256,43 @@
 
 <div style="max-width:1100px;margin:0 auto;padding:0 5%"><hr class="rule"></div>
 
-<!-- PROJETS -->
 <section id="projets">
   <p class="section-eyebrow">Réalisations</p>
   <h2 class="section-title">Projets marquants</h2>
-
   <div class="projects-grid">
     <div class="project-card">
-      <div class="project-category">Communication éditoriale</div>
-      <h3 class="project-title">Guide France Congrès Événements 2025</h3>
-      <p class="project-desc">Conception et production du guide officiel bilingue FR/EN de la fédération, couvrant 46 destinations membres, leurs démarches RSE et le label Destination Innovante Durable (Bureau Veritas / ISO 20121). De la maquette InDesign à la diffusion finale.</p>
-      <span class="project-metric">46 destinations · Bilingue FR/EN</span>
+      <div class="project-category">Publication éditoriale</div>
+      <h3 class="project-title">Guide France Congrès Événements 2024-25</h3>
+      <p class="project-desc">Conception et production du guide officiel bilingue FR/EN couvrant 46 villes membres. Focus sur le label Destination Innovante Durable, la démarche Innov & Tech et les partenaires annonceurs. De la maquette InDesign à la diffusion finale.</p>
+      <a href="https://it1v7.interactiv-doc.fr/html/2025_283/" target="_blank" class="project-link">Consulter le guide 2024-25 →</a>
     </div>
-
+    <div class="project-card">
+      <div class="project-category">Publication éditoriale</div>
+      <h3 class="project-title">Guide France Congrès Événements 2026-27</h3>
+      <p class="project-desc">Nouvelle édition mettant en lumière les atouts de 42 villes membres et leurs stratégies d'attractivité MICE. Focus sur le label Destination Innovante Durable et la section Innov & Tech avec les entreprises partenaires.</p>
+      <a href="https://it1v7.interactiv-doc.fr/html/guide_2026_2027_283/" target="_blank" class="project-link">Consulter le guide 2026-27 →</a>
+    </div>
     <div class="project-card">
       <div class="project-category">Social Media & Newsletters</div>
-      <h3 class="project-title">Stratégie éditoriale FCE</h3>
-      <p class="project-desc">Pilotage complet de la stratégie de contenu : deux newsletters Mailchimp, animation LinkedIn et Instagram, calendrier éditorial, reporting mensuel sur Power BI. Résultat : taux d'ouverture newsletters jusqu'à 28,6% contre 21% pour la moyenne du secteur.</p>
-      <span class="project-metric">28,6% taux d'ouverture · 3 000 abonnés</span>
+      <h3 class="project-title">Stratégie éditoriale France Congrès Événements</h3>
+      <p class="project-desc">Pilotage complet de la communication digitale d'une fédération nationale : deux newsletters thématiques, animation LinkedIn et Instagram, calendrier éditorial annuel et reporting mensuel des performances. Des résultats régulièrement au-dessus des moyennes du secteur.</p>
     </div>
-
     <div class="project-card">
       <div class="project-category">Grand événement public</div>
       <h3 class="project-title">Fanzone CdM Rugby 2023 · Place de la Concorde</h3>
-      <p class="project-desc">Coordination opérationnelle des espaces de restauration de la fanzone officielle lors de la Coupe du Monde de Rugby 2023 à Paris. Gestion des flux, supervision des équipes de service et maintien de la qualité sur un site d'envergure internationale.</p>
-      <span class="project-metric">10 000 visiteurs/jour</span>
-    </div>
-
-    <div class="project-card">
-      <div class="project-category">Événementiel institutionnel</div>
-      <h3 class="project-title">Congrès annuels France Congrès Événements</h3>
-      <p class="project-desc">Organisation et communication de 3 événements annuels réunissant jusqu'à 150 élus, directeurs de villes et professionnels du tourisme : conception du programme, coordination prestataires, signalétique, invitations, bilans post-événement.</p>
-      <span class="project-metric">150 professionnels · 3 événements/an</span>
+      <p class="project-desc">Coordination opérationnelle des espaces de restauration de la fanzone officielle lors de la Coupe du Monde de Rugby 2023 à Paris. Gestion d'un site d'envergure internationale, supervision des équipes de service et maintien de la qualité sous forte pression.</p>
     </div>
   </div>
 </section>
 
 <div style="max-width:1100px;margin:0 auto;padding:0 5%"><hr class="rule"></div>
 
-<!-- CONTACT -->
 <section id="contact">
   <div class="contact-wrapper">
     <div class="contact-info">
       <p class="section-eyebrow">Contact</p>
       <h2 class="section-title">Travaillons ensemble</h2>
-      <p>Disponible dès août 2026 pour un CDI en communication ou événementiel sur Paris et l'Île-de-France. N'hésitez pas à me contacter directement.</p>
+      <p>Disponible à partir de septembre 2026 pour un CDI en communication ou événementiel sur Paris et l'Île-de-France.</p>
       <div class="contact-links">
         <a href="mailto:enzogernez1213@gmail.com" class="contact-link">
           <span class="icon">✉</span>
@@ -644,13 +302,12 @@
           <span class="icon">📞</span>
           06 58 50 39 66
         </a>
-        <a href="https://www.linkedin.com/in/enzogernez" target="_blank" class="contact-link">
+        <a href="https://www.linkedin.com/in/enzo-gernez-553907206/" target="_blank" class="contact-link">
           <span class="icon">in</span>
           LinkedIn · Enzo Gernez
         </a>
       </div>
     </div>
-
     <div>
       <p class="section-eyebrow">Formation</p>
       <div class="formation-list">
