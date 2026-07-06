@@ -69,12 +69,12 @@
     .skill-list li { font-size: 0.875rem; color: var(--ink-light); display: flex; align-items: center; gap: 0.5rem; }
     .skill-list li::before { content: ''; width: 4px; height: 4px; background: var(--accent-mid); border-radius: 50%; flex-shrink: 0; }
     .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
-    .project-card { background: var(--white); border: 1px solid var(--rule); border-radius: 8px; padding: 2rem; transition: border-color 0.2s, box-shadow 0.2s; }
+    .project-card { background: var(--white); border: 1px solid var(--rule); border-radius: 8px; padding: 2rem; transition: border-color 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; }
     .project-card:hover { border-color: var(--accent); box-shadow: 0 4px 20px rgba(29,74,82,0.08); }
     .project-category { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-mid); margin-bottom: 0.75rem; }
     .project-title { font-family: var(--serif); font-size: 1.2rem; margin-bottom: 0.75rem; }
-    .project-desc { font-size: 0.875rem; color: var(--ink-light); line-height: 1.6; margin-bottom: 1rem; }
-    .project-link { display: inline-block; font-size: 0.8rem; font-weight: 600; color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent); padding-bottom: 1px; transition: opacity 0.2s; }
+    .project-desc { font-size: 0.875rem; color: var(--ink-light); line-height: 1.6; margin-bottom: 1rem; flex: 1; }
+    .project-link { display: inline-block; font-size: 0.8rem; font-weight: 600; color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent); padding-bottom: 1px; transition: opacity 0.2s; margin-top: auto; }
     .project-link:hover { opacity: 0.7; }
     .contact-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
     .contact-info p { font-size: 1rem; color: var(--ink-light); line-height: 1.7; margin-bottom: 2rem; }
@@ -125,14 +125,14 @@
         <div class="hero-card-icon">✍️</div>
         <div class="hero-card-text">
           <strong>Stratégie éditoriale pilotée seul</strong>
-          <span>Newsletters, réseaux sociaux, site web de la conception à la diffusion</span>
+          <span>Newsletters, réseaux sociaux, site web — de la conception à la diffusion</span>
         </div>
       </div>
       <div class="hero-card">
-        <div class="hero-card-icon">🤝</div>
+        <div class="hero-card-icon">🎤</div>
         <div class="hero-card-text">
-          <strong>Événements institutionnels de A à Z</strong>
-          <span>Coordination complète prestataires, logistique et communication</span>
+          <strong>Forums & conférences multi-jours</strong>
+          <span>Organisation de A à Z d'événements nationaux avec 200+ participants</span>
         </div>
       </div>
       <div class="hero-card">
@@ -143,10 +143,10 @@
         </div>
       </div>
       <div class="hero-card">
-        <div class="hero-card-icon">🌿</div>
+        <div class="hero-card-icon">🎯</div>
         <div class="hero-card-text">
-          <strong>Communication RSE & innovation</strong>
-          <span>Label Destination Innovante Durable, guide bilingue FR/EN</span>
+          <strong>50+ événements B2B en agence</strong>
+          <span>Inaugurations, séminaires, soirées d'entreprise, premières pierres</span>
         </div>
       </div>
     </div>
@@ -161,12 +161,12 @@
   <div class="experiences">
     <div class="exp-item">
       <div class="exp-meta">
-        <div class="exp-period">Oct. 2023 — Sept. 2026</div>
+        <div class="exp-period">Oct. 2023 — Juil. 2026</div>
         <div class="exp-company">France Congrès Événements</div>
       </div>
       <div class="exp-content">
         <h3 class="exp-title">Chargé de communication et événementiel</h3>
-        <p class="exp-desc">Pilotage seul de la stratégie de communication d'une fédération de 46 collectivités et destinations touristiques. Gestion de deux newsletters, animation des réseaux sociaux, production du Guide France Congrès Événements bilingue FR/EN, coordination de 3 événements annuels réunissant jusqu'à 150 professionnels institutionnels.</p>
+        <p class="exp-desc">Pilotage seul de la stratégie de communication d'une fédération de 46 collectivités et destinations touristiques. Gestion de deux newsletters, animation des réseaux sociaux, production du Guide France Congrès Événements bilingue FR/EN, coordination de forums et événements nationaux réunissant jusqu'à 200 professionnels institutionnels.</p>
         <div class="exp-tags">
           <span class="tag">Stratégie éditoriale</span>
           <span class="tag">Newsletters</span>
@@ -181,7 +181,7 @@
     <div class="exp-item">
       <div class="exp-meta">
         <div class="exp-period">Oct. 2023</div>
-        <div class="exp-company">Coupe du Monde de Rugby</div>
+        <div class="exp-company">Coupe du Monde de Rugby 2023</div>
       </div>
       <div class="exp-content">
         <h3 class="exp-title">Coordinateur des espaces de restauration</h3>
@@ -200,9 +200,10 @@
       </div>
       <div class="exp-content">
         <h3 class="exp-title">Chargé de projet événementiel</h3>
-        <p class="exp-desc">En agence événementielle parisienne : réponses aux appels d'offres, rédaction de recommandations clients, régie terrain sur des événements B2B variés (tables rondes, soirées d'entreprise, premières pierres, team buildings), rédaction de bilans post-événement.</p>
+        <p class="exp-desc">En agence événementielle parisienne : organisation d'une cinquantaine d'événements par an — premières pierres, inaugurations, séminaires, kick-offs, soirées d'entreprise. Réponses aux appels d'offres, rédaction de recommandations clients, régie terrain et bilans post-événement.</p>
         <div class="exp-tags">
           <span class="tag">Événementiel B2B</span>
+          <span class="tag">50+ événements/an</span>
           <span class="tag">Appels d'offres</span>
           <span class="tag">Régie terrain</span>
           <span class="tag">Coordination prestataires</span>
@@ -260,28 +261,49 @@
   <p class="section-eyebrow">Réalisations</p>
   <h2 class="section-title">Projets marquants</h2>
   <div class="projects-grid">
+
     <div class="project-card">
-      <div class="project-category">Publication éditoriale</div>
-      <h3 class="project-title">Guide France Congrès Événements 2024-25</h3>
-      <p class="project-desc">Conception et production du guide officiel bilingue FR/EN couvrant 46 villes membres. Focus sur le label Destination Innovante Durable, la démarche Innov & Tech et les partenaires annonceurs. De la maquette InDesign à la diffusion finale.</p>
-      <a href="https://it1v7.interactiv-doc.fr/html/2025_283/" target="_blank" class="project-link">Consulter le guide 2024-25 →</a>
+      <div class="project-category">Forum national · France Congrès Événements</div>
+      <h3 class="project-title">Forum Innov & Tech — Montpellier 2023</h3>
+      <p class="project-desc">Organisation et communication du 3e Forum Innov & Tech, événement national de référence sur l'avenir des villes et de l'événementiel. Édition de 3 jours à Montpellier, réunissant plus de 200 professionnels institutionnels.</p>
+      <a href="https://france-congres-evenements.org/le-troisieme-forum-innovtech-2023-sest-tenu-du-14-au-16-novembre-a-montpellier-pour-penser-et-faire-le-futur-des-villes-et-des-evenements/" target="_blank" class="project-link">Voir le compte rendu →</a>
     </div>
+
     <div class="project-card">
-      <div class="project-category">Publication éditoriale</div>
-      <h3 class="project-title">Guide France Congrès Événements 2026-27</h3>
-      <p class="project-desc">Nouvelle édition mettant en lumière les atouts de 42 villes membres et leurs stratégies d'attractivité MICE. Focus sur le label Destination Innovante Durable et la section Innov & Tech avec les entreprises partenaires.</p>
+      <div class="project-category">Forum national · France Congrès Événements</div>
+      <h3 class="project-title">Forum Innov & Tech — Marseille 2025</h3>
+      <p class="project-desc">4e édition du Forum Innov & Tech, organisée à Marseille sur plusieurs jours. Communication complète, coordination des intervenants et des prestataires, production des supports et couverture de l'événement.</p>
+      <a href="https://france-congres-evenements.org/retour-sur-le-forum-innov-tech-2025-une-4%e1%b4%b0-edition-marseillaise-inspirante/" target="_blank" class="project-link">Voir le compte rendu →</a>
+    </div>
+
+    <div class="project-card">
+      <div class="project-category">Événement institutionnel · France Congrès Événements</div>
+      <h3 class="project-title">Rencontres France Congrès Événements — Paris</h3>
+      <p class="project-desc">Organisation et communication des rencontres annuelles parisiennes de la fédération, réunissant élus, directeurs de villes et professionnels du tourisme d'affaires. Coordination logistique, invitations, signalétique et after-movie.</p>
+      <a href="https://france-congres-evenements.org/decouvrez-la-video-best-of-de-notre-derniere-rencontre-france-congres-evenements/" target="_blank" class="project-link">Voir la vidéo best-of →</a>
+    </div>
+
+    <div class="project-card">
+      <div class="project-category">Publication éditoriale · France Congrès Événements</div>
+      <h3 class="project-title">Guide France Congrès Événements 2024-25 & 2026-27</h3>
+      <p class="project-desc">Conception et production du guide officiel bilingue FR/EN couvrant les destinations membres, le label Destination Innovante Durable et la démarche Innov & Tech. De la maquette InDesign à la diffusion finale.</p>
       <a href="https://it1v7.interactiv-doc.fr/html/guide_2026_2027_283/" target="_blank" class="project-link">Consulter le guide 2026-27 →</a>
     </div>
+
     <div class="project-card">
-      <div class="project-category">Social Media & Newsletters</div>
-      <h3 class="project-title">Stratégie éditoriale France Congrès Événements</h3>
-      <p class="project-desc">Pilotage complet de la communication digitale d'une fédération nationale : deux newsletters thématiques, animation LinkedIn et Instagram, calendrier éditorial annuel et reporting mensuel des performances. Des résultats régulièrement au-dessus des moyennes du secteur.</p>
+      <div class="project-category">Événement d'entreprise · Signé BDFC</div>
+      <h3 class="project-title">Les Incroyables Talents d'Edeis — Salle Wagram, Paris</h3>
+      <p class="project-desc">Organisation d'un grand événement interne de reconnaissance des talents pour le groupe Edeis à la Salle Wagram. Coordination complète de la production, de la logistique et des prestataires pour un événement fédérateur à forte dimension scénographique.</p>
+      
     </div>
+
     <div class="project-card">
-      <div class="project-category">Grand événement public</div>
-      <h3 class="project-title">Fanzone CdM Rugby 2023 · Place de la Concorde</h3>
-      <p class="project-desc">Coordination opérationnelle des espaces de restauration de la fanzone officielle lors de la Coupe du Monde de Rugby 2023 à Paris. Gestion d'un site d'envergure internationale, supervision des équipes de service et maintien de la qualité sous forte pression.</p>
+      <div class="project-category">Événement prestige · Signé BDFC</div>
+      <h3 class="project-title">Vacances à Versailles — Journée Emerige au Château</h3>
+      <p class="project-desc">Organisation d'une journée de prestige pour les collaborateurs et clients d'Emerige au Château de Versailles. Coordination logistique, accueil des participants, gestion des prestataires et suivi de l'expérience sur site.</p>
+      
     </div>
+
   </div>
 </section>
 
