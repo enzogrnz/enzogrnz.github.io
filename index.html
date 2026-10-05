@@ -34,12 +34,13 @@
     .nav-links { display: flex; gap: 2rem; list-style: none; }
     .nav-links a { font-size: 0.85rem; font-weight: 500; color: var(--ink-light); text-decoration: none; letter-spacing: 0.05em; text-transform: uppercase; transition: color 0.2s; }
     .nav-links a:hover { color: var(--accent); }
-    .hero { min-height: 100vh; display: flex; align-items: center; padding: 100px 5% 60px; max-width: 1100px; margin: 0 auto; }
-    .hero-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; width: 100%; }
-    .hero-text h1 { font-family: var(--serif); font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.1; color: var(--ink); margin-bottom: 1.5rem; }
+    .hero { min-height: 100vh; display: flex; align-items: center; padding: 100px 5% 60px; max-width: 1240px; margin: 0 auto; }
+    .hero-inner { display: grid; grid-template-columns: minmax(0,1.2fr) minmax(0,1fr); gap: 40px; align-items: center; width: 100%; }
+    .hero-text h1 { font-family: var(--serif); font-size: clamp(1.9rem, 3vw, 2.7rem); line-height: 1.12; white-space: nowrap; color: var(--ink); margin-bottom: 1.5rem; }
     .hero-text h1 em { font-style: italic; color: var(--accent); }
     .hero-text p { font-size: 1.05rem; color: var(--ink-light); margin-bottom: 2rem; line-height: 1.7; }
-    .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .hero-cta { display: flex; gap: 0.6rem; flex-wrap: nowrap; }
+    .hero-cta .btn { white-space: nowrap; padding: 0.75rem 1.2rem; }
     .btn { display: inline-block; padding: 0.75rem 1.75rem; border-radius: 3px; font-size: 0.875rem; font-weight: 500; text-decoration: none; transition: all 0.2s; letter-spacing: 0.02em; }
     .btn-primary { background: var(--accent); color: white; }
     .btn-primary:hover { background: #0f2a30; }
@@ -130,6 +131,8 @@
       .projects-grid { grid-template-columns: 1fr; }
       .contact-wrapper { grid-template-columns: 1fr; gap: 3rem; }
       .nav-links { display: none; }
+      .hero-cta { flex-wrap: wrap; }
+      .hero-text h1 { white-space: normal; }
       .lightbox-prev, .lightbox-next { font-size: 1.4rem; padding: 0.4rem 0.6rem; }
     }
   </style>
@@ -151,12 +154,12 @@
   <div class="hero-inner">
     <div class="hero-text">
       <p class="section-eyebrow">Disponible · Paris & IDF</p>
-      <h1>Chargé de <em>Communication</em> & Événementiel</h1>
-      <p>4 ans d'expérience en communication institutionnelle, stratégie éditoriale et gestion de projets événementiels. À l'aise aussi bien sur la stratégie que sur l'opérationnel terrain.</p>
+      <h1>Chargé de <em>Communication</em><br>& Événementiel</h1>
+      <p>4 ans d'expérience en communication institutionnelle, stratégie éditoriale et événementiel, de la stratégie au terrain.</p>
       <div class="hero-cta">
         <a href="mailto:enzogernez1213@gmail.com" class="btn btn-primary">Me contacter</a>
         <a href="#projets" class="btn btn-outline">Voir mes projets</a>
-        <a href="assets/CV_Enzo_GERNEZ.pdf" target="_blank" class="btn btn-outline">Télécharger mon CV</a>
+        <a href="assets/CV_Enzo_GERNEZ.pdf" target="_blank" class="btn btn-outline">Mon CV</a>
       </div>
     </div>
     <div class="hero-cards">
@@ -171,7 +174,7 @@
         <div class="hero-card-icon">🎤</div>
         <div class="hero-card-text">
           <strong>3 grands événements par an</strong>
-          <span>Forums et rencontres nationales de 150 à 200 professionnels : élus, directeurs de centres de congrès et d'offices de tourisme</span>
+          <span>Forums et rencontres de 150 à 200 professionnels</span>
         </div>
       </div>
       <div class="hero-card">
